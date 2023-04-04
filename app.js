@@ -26,9 +26,9 @@ app.get("/",async(req,res)=>{
     }
 })
 
-app.get("/find",async(req,res)=>{
+app.get("/:find",async(req,res)=>{
     try{
-        let userPosts = await Imagepost.find({title:req.body.title});
+        let userPosts = await Imagepost.find({title:req.params.find});
         res.json(userPosts)
     }catch(e){
         res.json(e.message)
