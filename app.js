@@ -26,6 +26,14 @@ app.get("/",async(req,res)=>{
     }
 })
 
+app.get("/find",async(req,res)=>{
+    try{
+        let userPosts = await Imagepost.find({title:req.body.title});
+        res.json(userPosts)
+    }catch(e){
+        res.json(e.message)
+    }
+})
 
 app.post("/uploads", async (req, res) => {   
     try {
